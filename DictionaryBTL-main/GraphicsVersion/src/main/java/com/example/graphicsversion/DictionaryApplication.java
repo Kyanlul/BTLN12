@@ -1,5 +1,7 @@
 package com.example.graphicsversion;
 
+import src.game.Run;
+
 import DatabaseManagement.DatabaseManager;
 import api.GoogleAPI;
 import javafx.fxml.FXML;
@@ -71,6 +73,36 @@ public class DictionaryApplication implements Initializable {
     @FXML
     public Button fixConfirm;
     @FXML
+    public Tab gameTab; // Reference to the "Game" tab
+
+    @FXML
+    public void onGameTabSelected() {
+        if (gameTab.isSelected()) {
+            runGameOnSeparateThread();
+        }
+    }
+
+
+    public void initialize_game(URL url, ResourceBundle resourceBundle) {
+        // Existing initialization code...
+
+        gameTab.setOnSelectionChanged(event -> {
+            if (gameTab.isSelected()) {
+                runGameOnSeparateThread();
+            }
+        });
+
+        // Existing code...
+    }
+
+    public void runGameOnSeparateThread() {
+        Thread thread = new Thread(() -> {
+            // Initialize and launch JavaFX application;
+            Run.main(new String[]{});
+        });
+        thread.start();
+    }
+
     public void onInputCopyToClipboard() {
         copyToClipBoard(doc);
     }

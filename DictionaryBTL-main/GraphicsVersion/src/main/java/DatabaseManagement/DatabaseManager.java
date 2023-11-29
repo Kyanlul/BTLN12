@@ -148,13 +148,13 @@ public class DatabaseManager {
         }
     }
 
+    //test
     public static void main(String[] args) throws Exception {
         connectToDataBase();
-        String[] s = get("duyanh");
+        String[] s = get("quydang");
         for (String i : s) {
             System.out.println(i);
         }
-//        update("chienle", "lechien", "n", "le chien");
     }
 
 }

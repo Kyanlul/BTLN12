@@ -131,10 +131,11 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Game">
+            <Tab text="Game" fx:id="gameTab" onSelectionChanged="#onGameTabSelected">
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                       </AnchorPane>
+                        <!-- Your Game UI components go here -->
+                    </AnchorPane>
                 </content>
             </Tab>
         </tabs>
