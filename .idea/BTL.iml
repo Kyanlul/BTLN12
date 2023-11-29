@@ -121,5 +121,12 @@
     <orderEntry type="library" name="Maven: com.github.almasb:fxgl:11.17" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:modular:1.5.10" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.5.10" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-core:12.3.1" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:lifecycle:4.0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:17.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-media:win:17.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:storage:4.0.9" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:audio:4.0.9" level="project" />
+    <orderEntry type="library" name="Maven: com.gluonhq.attach:util:4.0.9" level="project" />
   </component>
 </module>
