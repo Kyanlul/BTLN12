@@ -40,6 +40,7 @@ public class Asteroids extends Application {
     private ArrayList<DataStructure> dataList = new ArrayList<>();
     private Random random = new Random();
 
+    //randomAsteroid
     private int randomInt(int a, int b) {
         if (a > b) {
             throw new IllegalArgumentException("Invalid range");
