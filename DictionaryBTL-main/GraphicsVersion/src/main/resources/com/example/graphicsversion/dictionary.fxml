@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -131,12 +135,36 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Game" fx:id="gameTab" onSelectionChanged="#onGameTabSelected">
+            <Tab text="Game">
                 <content>
+                    <?import javafx.scene.image.Image?>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                        <!-- Your Game UI components go here -->
-                    </AnchorPane>
+                        <children>
+<!--                            <Label layoutX="140.0" layoutY="90.0" prefHeight="35.0" prefWidth="120.0" text="Từ cần thêm :" />-->
+<!--                            <Label layoutX="140.0" layoutY="170.0" prefHeight="35.0" prefWidth="120.0" text="Phát âm :" />-->
+<!--                            <Label layoutX="140.0" layoutY="250.0" prefHeight="35.0" prefWidth="120.0" text="Từ loại :" />-->
+<!--                            <Label layoutX="140.0" layoutY="330.0" prefHeight="35.0" prefWidth="120.0" text="Nghĩa :" />-->
+                            <Button fx:id="confirm" layoutX="325.0" layoutY="430.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Xác nhận" />
+<!--                            <TextField fx:id="addW" layoutX="275.0" layoutY="90.0" prefHeight="40.0" prefWidth="200.0" />-->
+<!--                            <TextField fx:id="addP" layoutX="275.0" layoutY="170.0" prefHeight="40.0" prefWidth="200.0" />-->
+<!--                            <TextField fx:id="addT" layoutX="275.0" layoutY="250.0" prefHeight="40.0" prefWidth="200.0" />-->
+<!--                            <TextField fx:id="addM" layoutX="275.0" layoutY="330.0" prefHeight="40.0" prefWidth="200.0" />-->
+
+                            <ImageView layoutX="140.0" layoutY="90.0" prefHeight="35.0" prefWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../../icons/audio.png" />
+                                </image>
+                            </ImageView>
+                        </children></AnchorPane>
                 </content>
+
+
+<!--                TODO: CODE CU-->
+<!--                <content>-->
+<!--                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">-->
+<!--                       </AnchorPane>-->
+<!--                </content>-->
+
             </Tab>
         </tabs>
       </TabPane>

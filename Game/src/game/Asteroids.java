@@ -2,14 +2,9 @@ package src.game;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
@@ -17,7 +12,10 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
 
 class DataStructure {
     int number;
@@ -30,12 +28,10 @@ public class Asteroids extends Application {
     int numCha;
     int numRan; // For challenge pic and letter.
 
-    int totalBullets = 5;
-
-    String srcPath = "C://MY PRJ//Ky 1 Nam 2//OOP//BTLOOPN12-master//Game//src//image//";
+    String srcPath = "C://Java//OOP_N12_EnglishDictionary//Game//src//image//";
     Sprite asteroidChallenge;
 
-    Set<Integer> usedChallenge = new HashSet<Integer>();
+    Set<Integer> numSet = new HashSet<Integer>();
 
     private ArrayList<String> keyPress = new ArrayList<String>();
     private ArrayList<String> keyJustPress = new ArrayList<String>();
@@ -49,14 +45,14 @@ public class Asteroids extends Application {
             throw new IllegalArgumentException("Invalid range");
         }
         int range = b - a + 1;
-        if (usedChallenge.size() == range) {
-            usedChallenge.clear();
+        if (numSet.size() == range) {
+            numSet.clear();
         }
         int randomNum;
         do {
             randomNum = random.nextInt(range) + a;
-        } while (usedChallenge.contains(randomNum));
-        usedChallenge.add(randomNum);
+        } while (numSet.contains(randomNum));
+        numSet.add(randomNum);
         return randomNum;
     }
 
@@ -178,43 +174,6 @@ public class Asteroids extends Application {
                 handleBulletAsteroidCollision();
             }
 
-            public void showOut() {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Out of bullet");
-                alert.setHeaderText("Your score: " + score);
-                alert.setContentText("Do you want to continue playing?");
-
-                ButtonType playAgain = new ButtonType("Play Again");
-                ButtonType quitButton = new ButtonType("Quit", ButtonBar.ButtonData.CANCEL_CLOSE);
-                alert.getButtonTypes().setAll(playAgain, quitButton);
-
-                Optional<ButtonType> result = alert.showAndWait();
-                if(result.isPresent() && result.get() == playAgain) {
-                    resetGame();
-                } else {
-                    System.exit(0);
-                }
-            }
-
-            public void resetGame() {
-                totalBullets = 5;
-                score = 0;
-
-                numCha = 1;
-                numRan = randomInt(0, 99);
-                wordChallenge[0] = dataList.get(numRan);
-                renderUI(context);
-
-                keyPress.clear();
-                bulletList.clear();
-                asteroidsList.clear();
-                spaceship.position.set(50, 200);
-                usedChallenge.clear();
-
-                initAsteroidChallenge();
-                initAsteroid();
-            }
-
             private void handleBulletAsteroidCollision() {
                 for (int bulletNum = bulletList.size() - 1; bulletNum >= 0; bulletNum--) {
                     Sprite bullet = bulletList.get(bulletNum);
@@ -225,12 +184,6 @@ public class Asteroids extends Application {
                         if (bullet.overlaps(asteroid)) {
                             score -= 5;
                             bulletList.remove(bulletNum);
-                            totalBullets--;
-                            if(totalBullets == 0) {
-                                System.out.print("Goi ShowOut");
-                                Platform.runLater(this::showOut);
-
-                            }
                         } else if (asteroidChallenge != null && bullet.overlaps(asteroidChallenge)) {
                             // Remove all Challenge Objects.
                             removeChallengeObjects(bulletNum, asteroidNum);
@@ -272,7 +225,7 @@ public class Asteroids extends Application {
                     spaceship.velocity.setLength(0);
                 }
 
-                if (keyJustPress.contains("SPACE") && totalBullets > 0) {
+                if (keyJustPress.contains("SPACE")) {
                     Sprite bullet = new Sprite(srcPath + "bullet.png");
                     bullet.position.set(spaceship.position.x + 10, spaceship.position.y + 10);
                     bullet.velocity.setLength(150);
@@ -289,7 +242,7 @@ public class Asteroids extends Application {
                 for (int i = 0; i < bulletList.size(); i++) {
                     Sprite bullet = bulletList.get(i);
                     bullet.update(1 / 60.0);
-                    if (bullet.elapsedTime > 2.5) bulletList.remove(i);
+                    if (bullet.elapsedTime > 4) bulletList.remove(i);
                 }
 
                 spaceship.update(1 / 60.0);
@@ -333,13 +286,6 @@ public class Asteroids extends Application {
                 int scoreY = 40;
                 context.fillText(scoreText, scoreX, scoreY);
                 context.strokeText(scoreText, scoreX, scoreY);
-
-                // Total Bullet.
-                context.setFill(Color.YELLOW);
-                String totalBul = "Bullets: " + totalBullets;
-                int bulletTextX = 30;
-                int bulletTextY = 30;
-                context.fillText(totalBul, bulletTextX, bulletTextY);
 
                 // Text: Number of Challenge.
                 context.setFill(Color.GREY);

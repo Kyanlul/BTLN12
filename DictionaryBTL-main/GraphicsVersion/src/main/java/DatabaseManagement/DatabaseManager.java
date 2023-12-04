@@ -18,7 +18,7 @@ public class DatabaseManager {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(
                     "jdbc:mysql://127.0.0.1:3306/dictionary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
-                    "root", "Danglc123.");
+                    "root", "MyNewPass");
             stmt = conn.createStatement();
 
             String strQuery = "select english_word from words";
@@ -148,13 +148,13 @@ public class DatabaseManager {
         }
     }
 
-    //test
     public static void main(String[] args) throws Exception {
         connectToDataBase();
-        String[] s = get("quydang");
+        String[] s = get("duyanh");
         for (String i : s) {
             System.out.println(i);
         }
+//        update("chienle", "lechien", "n", "le chien");
     }
 
 }

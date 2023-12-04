@@ -27,6 +27,7 @@ public class Main extends Application {
     public static void main(String[] args) throws Exception {
         DatabaseManager.connectToDataBase();
         launch(args);
+        System.out.println("main main main");
     }
 
 }
