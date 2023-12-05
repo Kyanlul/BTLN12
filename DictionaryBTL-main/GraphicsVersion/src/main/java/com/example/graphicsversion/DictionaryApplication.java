@@ -1,14 +1,22 @@
 package com.example.graphicsversion;
 
-import src.game.Run;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import DatabaseManagement.DatabaseManager;
 import api.GoogleAPI;
+import game.Asteroids;
+import game.Run;
+import game.test;
+import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.stage.Stage;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -44,6 +52,10 @@ public class DictionaryApplication implements Initializable {
     public ChoiceBox translateType;
     @FXML
     public Button docTranslate;
+
+    @FXML
+    public Button docTranslate1;
+
     @FXML
     public TextArea doc;
     @FXML
@@ -73,36 +85,6 @@ public class DictionaryApplication implements Initializable {
     @FXML
     public Button fixConfirm;
     @FXML
-    public Tab gameTab; // Reference to the "Game" tab
-
-    @FXML
-    public void onGameTabSelected() {
-        if (gameTab.isSelected()) {
-            runGameOnSeparateThread();
-        }
-    }
-
-
-    public void initialize_game(URL url, ResourceBundle resourceBundle) {
-        // Existing initialization code...
-
-        gameTab.setOnSelectionChanged(event -> {
-            if (gameTab.isSelected()) {
-                runGameOnSeparateThread();
-            }
-        });
-
-        // Existing code...
-    }
-
-    public void runGameOnSeparateThread() {
-        Thread thread = new Thread(() -> {
-            // Initialize and launch JavaFX application;
-            Run.main(new String[]{});
-        });
-        thread.start();
-    }
-
     public void onInputCopyToClipboard() {
         copyToClipBoard(doc);
     }
@@ -128,7 +110,7 @@ public class DictionaryApplication implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        translateType.getItems().removeAll(translateType.getItems());
+//        translateType.getItems().removeAll(translateType.getItems());
         translateType.getItems().addAll("Anh - Việt", "Việt - Anh");
         translateType.getSelectionModel().select("Anh - Việt");
 
@@ -145,6 +127,32 @@ public class DictionaryApplication implements Initializable {
                 e.printStackTrace();
             }
             docc.setText(translateDoc);
+
+        });
+
+        docTranslate1.setOnMouseClicked(event -> {
+            System.out.println("game opened");
+//            Asteroids.launch(Asteroids.class);
+
+            try {
+                System.out.println("try1 run");
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        try {
+                            new test().start(new Stage());
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                });
+
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+
+
 
         });
 
