@@ -101,5 +101,7 @@
     <orderEntry type="library" name="Maven: org.xmlunit:xmlunit-core:2.9.0" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.30" level="project" />
     <orderEntry type="library" exported="" name="lib1" level="project" />
+    <orderEntry type="library" name="sphinx4-core-1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.sociaal:freetts:1.2.2" level="project" />
   </component>
 </module>

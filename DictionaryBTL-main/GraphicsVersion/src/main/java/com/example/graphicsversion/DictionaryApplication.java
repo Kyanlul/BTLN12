@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import DatabaseManagement.DatabaseManager;
-import api.GoogleAPI;
+import api.GoogleTranslateAPI;
 import game.Asteroids;
 import game.Run;
 import game.test;
@@ -119,11 +119,11 @@ public class DictionaryApplication implements Initializable {
             String translateDoc = null;
             try {
                 if (translateType.getValue().equals("Anh - Việt")) {
-                    translateDoc = GoogleAPI.translate("en", "vi", document);
+                    translateDoc = GoogleTranslateAPI.translate("en", "vi", document);
                 } else {
-                    translateDoc = GoogleAPI.translate("vi", "en", document);
+                    translateDoc = GoogleTranslateAPI.translate("vi", "en", document);
                 }
-            } catch (IOException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
             docc.setText(translateDoc);
@@ -157,16 +157,16 @@ public class DictionaryApplication implements Initializable {
 
         audio.setOnMouseClicked(e -> {
             String word = inWord.getText();
-            api.TextToSpeechAPI.getTextToSpeech(word, "en");
+            api.TextToSpeechOfflineAPI.speak(word);
         });
 
         audioo.setOnMouseClicked(event -> {
             String document = doc.getText();
             try {
                 if (translateType.getValue().equals("Việt - Anh")) {
-                    api.TextToSpeechAPI.getTextToSpeech(document, "vi");
+                    api.TextToSpeechOfflineAPI.speak(document);
                 } else {
-                    api.TextToSpeechAPI.getTextToSpeech(document, "en");
+                    api.TextToSpeechOfflineAPI.speak(document);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -177,9 +177,9 @@ public class DictionaryApplication implements Initializable {
             String document = docc.getText();
             try {
                 if (translateType.getValue().equals("Anh - Việt")) {
-                    api.TextToSpeechAPI.getTextToSpeech(document, "vi");
+                    api.TextToSpeechOfflineAPI.speak(document);
                 } else {
-                    api.TextToSpeechAPI.getTextToSpeech(document, "en");
+                    api.TextToSpeechOfflineAPI.speak(document);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -216,8 +216,8 @@ public class DictionaryApplication implements Initializable {
                 meaning.setText(getWord[3]);
                 String outWord = null;
                 try {
-                    outWord = "Từ đồng nghĩa : " + api.SemanticsAPI.getSynonymList(wordSelect) + "\n"
-                            + "Từ trái nghĩa : " + api.SemanticsAPI.getAntonymsList(wordSelect);
+                    outWord = "Từ đồng nghĩa : " + api.SynonymAPI.getSynonyms(wordSelect) + "\n"
+                            + "Từ trái nghĩa : " + api.SynonymAPI.getSynonyms(wordSelect);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="sphinx4-core-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../New folder (2)/sphinx4-core-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../New folder (2)/commons-math3-3.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
