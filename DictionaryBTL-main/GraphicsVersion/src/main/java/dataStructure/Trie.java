@@ -3,7 +3,7 @@ package dataStructure;
 public class Trie {
     public static TrieNode root = new TrieNode();
 
-    public void insert(String word) {
+    public static void insert(String word) {
         word = word.toLowerCase();
         TrieNode trieNode = root;
         for (int i = 0; i < word.length(); i++) {
@@ -60,12 +60,12 @@ public class Trie {
         return true;
     }
 
-    public void delete(String word) {
+    public static void delete(String word) {
         word = word.toLowerCase();
         backTrackDelete(root, word, 0);
     }
 
-    public TrieNode backTrackDelete(TrieNode trieNode, String key, int depth) {
+    public static TrieNode backTrackDelete(TrieNode trieNode, String key, int depth) {
         key = key.toLowerCase();
         if (trieNode == null) {
             return null;

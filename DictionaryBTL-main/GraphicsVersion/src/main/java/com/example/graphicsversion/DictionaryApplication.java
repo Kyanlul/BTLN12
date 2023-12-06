@@ -54,7 +54,7 @@ public class DictionaryApplication implements Initializable {
     public Button docTranslate;
 
     @FXML
-    public Button docTranslate1;
+    public Button gameButton;
 
     @FXML
     public TextArea doc;
@@ -130,10 +130,9 @@ public class DictionaryApplication implements Initializable {
 
         });
 
-        docTranslate1.setOnMouseClicked(event -> {
+        gameButton.setOnMouseClicked(event -> {
             System.out.println("game opened");
 //            Asteroids.launch(Asteroids.class);
-
             try {
                 System.out.println("try1 run");
                 Platform.runLater(new Runnable() {
