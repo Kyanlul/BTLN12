@@ -29,7 +29,8 @@
 
 # Game
 ![image](https://user-images.githubusercontent.com/125245025/288673403-a4b86fd0-6b73-4fdb-8d54-18bed8f8f0c5.jpg)
-1. We have spaceship and bullet for complete the Challenge.
+![image](https://user-images.githubusercontent.com/125245025/288673403-a4b86fd0-6b73-4fdb-8d54-18bed8f8f0c5.jpg)
+- We have spaceship and bullet for complete the Challenge.
 
 # References
 - Core:
