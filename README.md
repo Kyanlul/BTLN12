@@ -17,7 +17,7 @@
 1. Install [JDK 21 Environment](https://www.oracle.com/java/technologies/downloads/#jdk21-windows) in order to use this application
 2. Download and install IntelliJ.
 3. Download and install MySQLWorkbench to work with database follow [instruction](https://www.simplilearn.com/tutorials/mysql-tutorial/mysql-workbench-installation).
-    - **Note: At step 12, set password "dung"**
+    - **Note: At step 12, set password "Danglc123."**
 4. Create schema name "dictionary" in Workbench.
 5. Open folder \Backend\DictionaryBE\ by IntelliJ Ultimate and run Back-end at \src\main\java\com\example\demo\DictionaryApplication.java.
 6. Import file \Backend\DictionaryBE\dictionaryDB.sql into "dictionary" schema.

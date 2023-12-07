@@ -28,9 +28,7 @@ public class Asteroids extends Application {
     int numCha;
     int numRan; // For challenge pic and letter.
 
-    String srcPath = "file:///image//";
-    String srcPath1 = "/image//";
-//    String srcPath = ".//image//";
+    String srcPath = "C:/MY PRJ/Ky 1 Nam 2/OOP/BTLN12/Game/src/game/image/";
 
     Sprite asteroidChallenge;
 
@@ -115,20 +113,38 @@ public class Asteroids extends Application {
         Sprite spaceship = new Sprite(srcPath + "spaceship.png");
         spaceship.position.set(50, 200);
 
-        readDatafromTextfile(srcPath1 + "Data.txt");
+        readDatafromTextfile(srcPath + "Data.txt");
 
         score = 0;
         numCha = 1;
-        numRan = randomInt(0, 99);
-        final DataStructure[] wordChallenge = {dataList.get(numRan)};
+        DataStructure[] wordChallenge = new DataStructure[0];
 
+        if (!dataList.isEmpty()) {
+            numRan = randomInt(0, dataList.size() - 1);
+
+            if (numRan >= 0 && numRan < dataList.size()) {
+                wordChallenge = new DataStructure[]{dataList.get(numRan)};
+                // Further processing using wordChallenge
+            } else {
+                // Handle the case when numRan is out of bounds
+                System.out.println("numRan is out of bounds");
+            }
+        } else {
+            // Handle the case when dataList is empty
+            System.out.println("dataList is empty");
+        }
+
+
+        DataStructure[] finalWordChallenge = wordChallenge;
         AnimationTimer gameloop = new AnimationTimer() {
 
             public void initAsteroidChallenge() {
                 if (dataList.isEmpty()) {
                     return;
                 }
-                String fileName = srcPath + (wordChallenge[0].word.charAt(1) - 96) + ".png";
+
+
+                String fileName = srcPath + (finalWordChallenge[0].word.charAt(1) - 96) + ".png";
                 asteroidChallenge = new Sprite(fileName);
                 double picX = 500 * Math.random() + 300;
                 double picY = 300 * Math.random() + 100;
@@ -145,7 +161,7 @@ public class Asteroids extends Application {
 
                     do {
                         numPic = randomInt(1, 26);
-                    } while (numPic == wordChallenge[0].word.charAt(1) - 96);
+                    } while (numPic == finalWordChallenge[0].word.charAt(1) - 96);
 
                     String namePic = srcPath + numPic + ".png";
 
@@ -195,7 +211,7 @@ public class Asteroids extends Application {
                             // Create new Challenge word.
                             numRan = randomInt(0, 99);
                             DataStructure newChallenge = dataList.get(numRan);
-                            wordChallenge[0] = newChallenge;
+                            finalWordChallenge[0] = newChallenge;
                             renderUI(context);
 
                             // Create new Image for asteroids.
@@ -304,8 +320,8 @@ public class Asteroids extends Application {
                 context.setFill(Color.BLACK);
                 context.setStroke(Color.CHOCOLATE);
                 context.setFont(new Font("Calibri", 45));
-                String newWord = wordChallenge[0].word.charAt(0) + "_" + wordChallenge[0].word.substring(2);
-                String wordText = newWord + ": " + wordChallenge[0].meaning;
+                String newWord = finalWordChallenge[0].word.charAt(0) + "_" + finalWordChallenge[0].word.substring(2);
+                String wordText = newWord + ": " + finalWordChallenge[0].meaning;
                 int wordX = 150;
                 int wordY = 440;
                 context.fillText(wordText, wordX, wordY);

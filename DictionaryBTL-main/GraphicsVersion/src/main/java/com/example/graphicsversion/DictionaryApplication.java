@@ -131,28 +131,13 @@ public class DictionaryApplication implements Initializable {
         });
 
         gameButton.setOnMouseClicked(event -> {
-            System.out.println("game opened");
-//            Asteroids.launch(Asteroids.class);
+            System.out.println("Game opened");
+
             try {
-                System.out.println("try1 run");
-                Platform.runLater(new Runnable() {
-                    public void run() {
-                        try {
-                            new test().start(new Stage());
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                });
-
-
+                new test().start(new Stage());
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-
-
-
-
         });
 
         audio.setOnMouseClicked(e -> {
@@ -216,8 +201,7 @@ public class DictionaryApplication implements Initializable {
                 meaning.setText(getWord[3]);
                 String outWord = null;
                 try {
-                    outWord = "Từ đồng nghĩa : " + api.SynonymAPI.getSynonyms(wordSelect) + "\n"
-                            + "Từ trái nghĩa : " + api.SynonymAPI.getSynonyms(wordSelect);
+                    outWord = "Từ đồng nghĩa : " + api.SynonymAPI.getSynonyms(wordSelect);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
@@ -252,5 +236,16 @@ public class DictionaryApplication implements Initializable {
             alert.show();
         });
 
+    }
+
+    public void handleGameButtonAction(javafx.event.ActionEvent actionEvent) {
+        System.out.println("Xác nhận button clicked");
+
+        try {
+            // Launch your game here
+            new test().start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle the exception appropriately
+        }
     }
 }
