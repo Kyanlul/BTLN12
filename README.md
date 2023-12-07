@@ -29,7 +29,7 @@
 
 # Game
 ![image](https://user-images.githubusercontent.com/125245025/288673403-a4b86fd0-6b73-4fdb-8d54-18bed8f8f0c5.jpg)
-![image](https://user-images.githubusercontent.com/125245025/288673403-a4b86fd0-6b73-4fdb-8d54-18bed8f8f0c5.jpg)
+![image](https://user-images.githubusercontent.com/125245025/288676877-638dfa9d-9233-4a56-b0b2-6576ac1c804c.jpg)
 - We have spaceship and bullet for complete the Challenge.
 
 # References
