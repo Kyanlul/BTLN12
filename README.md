@@ -43,8 +43,8 @@
     - Game.
     - Read File and Database.
 - [Tran Le Quy Dang](https://github.com/Kyanlul)
-    - Fetch API.
-    - Collect dictionary data.
+    - Back-end.
+    - API.
 - [Ngo Phuong Ha](https://github.com/HaNgo0104)
     - Front-end designer.
     - Front-end developer.
