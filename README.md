@@ -27,6 +27,10 @@
     - **If error javafx.controls not found, open "edit configuration", replace path in "" with your lib path in JavaFX downloaded at step 7**
       ![image](https://user-images.githubusercontent.com/73191554/184933928-de705e4e-4eef-44c0-9014-714c782ad433.png)
 
+# Game
+![iamge](https://private-user-images.githubusercontent.com/125245025/288673403-a4b86fd0-6b73-4fdb-8d54-18bed8f8f0c5.jpg)
+1. We have 
+
 # References
 - Core:
     - [Java Development Kit 21](https://www.oracle.com/java/technologies/downloads/#jdk21-windows) for compiler.
