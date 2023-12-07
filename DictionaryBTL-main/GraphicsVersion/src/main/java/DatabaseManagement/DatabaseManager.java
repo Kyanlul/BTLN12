@@ -154,7 +154,7 @@ public class DatabaseManager {
         for (String i : s) {
             System.out.println(i);
         }
-//        update("chienle", "lechien", "n", "le chien");
+//        update();
     }
 
 }
