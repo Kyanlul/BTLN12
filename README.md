@@ -41,7 +41,7 @@
 # Developers
 - [Bui Duc Duy](https://github.com/makelete)
     - Game.
-    - Tester.
+    - Read File and Database.
 - [Tran Le Quy Dang](https://github.com/Kyanlul)
     - Fetch API.
     - Collect dictionary data.
